@@ -7,7 +7,7 @@ fun main() {
         println("FirstTest func execution")
     }
 
-    // самыQ простой DSL:
+    // самый простой DSL:
     println("========First DSL================")
     testRunnerImpl {
         runTest(FirstTest()) { println("§ invoke test FirstTest() RUNNING") }

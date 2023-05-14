@@ -7,15 +7,15 @@ class TestRunnerImpl : TestRunner {
         //val clazz1 = steps::class.declaredMemberFunctions  // короче и сразу коллекция функций.filter {....
         val clazz = steps::class.java.kotlin
         // val instance = clazz.createInstance()  // излишне
-        // а зачем задействовать переменную, если использовать только один раз. Для того и котлин:
-        //val setUpMethods =
+        // можно не задействовать переменную, если использовать только один раз, Котлин дает такую возможность
+        // val setUpMethods =
         clazz.functions.filter { it.name.contains("before") }.forEach {
             println("Starting execution of method ${it.name}")
             it.call(steps)    //it.call(instance)
             println("Ended execution of method ${it.name}")
         }
         test()
-        // а зачем задействовать переменную, если использовать только один раз. Для того и котлин:
+        // можно не задействовать переменную, если использовать только один раз
         //val tearDownMethods =
         clazz.functions.filter { it.name.contains("after") }.forEach {
             println("Starting execution of method ${it.name}")
